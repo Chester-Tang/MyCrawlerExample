@@ -13,7 +13,7 @@ import org.jsoup.select.Elements;
  * 1. 先利用Graph Api調整出需要的資料
  * 2. 修改程式，使用爬蟲包取得資料
  * 3. 上傳至GitHub
- * 
+ * ..
  * @author Abola Lee
  *
  */
