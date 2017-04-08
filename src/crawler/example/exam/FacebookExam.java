@@ -25,8 +25,8 @@ public class FacebookExam {
 
 		String uri = 
 				"https://graph.facebook.com/v2.6"
-				+ "/search?q="
-				+ "&access_token=";
+				+ "/lovejpski/feed?fields=id,link,message,created_time,likes.limit(0).summary(total_count),reactions.limit(0).summary(total_count)"
+				+ "&access_token=1476370569074332%7CXE5nChwxAC508fasCZI2I_vo_w0";
 
 
 		Elements elems =
@@ -34,17 +34,18 @@ public class FacebookExam {
 				.getFromJson(uri)
 				.select("data");
 		
-		String output = "id,reactions";
+		String output = "id,likes,reactions,message";
 
 		// 遂筆處理
 		for( Element data: elems ){
 			String id = data.select("id").text();
-
+			String likes = data.select("likes").text();
+			String reactions = data.select("reactions").text();
+			String message = data.select("message").text();
 			// FIXIT
-			String reactions = "";
+			//String reactions = "";
 
-
-			output += id + "," + reactions + "\n";
+			output += id + ","+ likes + ","+ reactions + ","+ message+ "\n";
 		}
 
 		System.out.println( output );
